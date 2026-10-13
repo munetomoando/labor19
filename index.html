@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>外国人労働者 丸わかり | 労働経済論 後期第4回</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+  chtml: { scale: 1.05 }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+<style>
+:root {
+  --ink: #1f2937;
+  --ink-soft: #4b5563;
+  --muted: #6b7280;
+  --accent: #1e3a8a;
+  --accent-2: #0e7490;
+  --accent-3: #b45309;
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --line: #e5e7eb;
+  --line-soft: #f1f1ec;
+  --highlight: #fef3c7;
+  --good: #047857;
+  --danger: #b91c1c;
+}
+* { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; }
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "palt";
+  color: var(--ink-soft);
+  background: var(--bg);
+  line-height: 1.75;
+}
+.page { max-width: 880px; margin: 0 auto; padding: 32px 24px 80px; }
+@media (max-width: 620px) { .page { padding: 20px 14px 60px; } }
+
+.cover {
+  border-left: 6px solid var(--accent);
+  padding: 20px 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fc 100%);
+  border-radius: 4px 14px 14px 4px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .05);
+  margin-bottom: 24px;
+}
+.cover .eyebrow { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .2em; margin-bottom: 6px; }
+.cover h1 { font-size: 28px; font-weight: 900; color: var(--accent); margin: 0 0 6px; line-height: 1.3; letter-spacing: .02em; }
+.cover .sub { font-size: 14px; color: var(--muted); }
+
+section { margin: 40px 0; }
+.section-title {
+  font-size: 22px; font-weight: 900; color: var(--ink);
+  margin: 0 0 16px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+  display: flex; align-items: center; gap: 10px;
+  line-height: 1.3; letter-spacing: .02em;
+}
+h3 { font-size: 17px; font-weight: 700; color: var(--accent); margin: 28px 0 10px; line-height: 1.3; }
+h4 { font-size: 15px; font-weight: 700; color: var(--ink); margin: 18px 0 8px; }
+p { margin: 10px 0; font-size: 15px; }
+strong { color: var(--ink); }
+ul, ol { padding-left: 20px; }
+li { margin: 4px 0; font-size: 15px; }
+
+.step-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 56px; height: 26px; padding: 0 10px; flex-shrink: 0;
+  border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: white;
+}
+.step-badge.intro   { background: var(--accent); }
+.step-badge.summary { background: var(--accent); }
+.step-badge.s-teal  { background: var(--accent-2); }
+.step-badge.s-amber { background: var(--accent-3); }
+
+.toc { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 8px; }
+@media (max-width: 620px) { .toc { grid-template-columns: 1fr; } }
+.toc a {
+  display: block; padding: 14px 16px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 14px;
+  text-decoration: none; color: var(--ink); transition: all .15s;
+}
+.toc a:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(30, 58, 138, .08); border-color: #c7d2fe; }
+.toc .num { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .2em; }
+.toc .ttl { font-size: 15px; font-weight: 700; color: var(--accent); margin: 4px 0 2px; }
+.toc .desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px 22px; margin: 16px 0; box-shadow: 0 1px 3px rgba(15, 23, 42, .04);
+}
+.callout { background: #ecfeff; border-left: 4px solid var(--accent-2); border-radius: 4px 10px 10px 4px; padding: 12px 16px; margin: 14px 0; }
+.callout.step2 { background: #fff7ed; border-left-color: var(--accent-3); }
+.callout.intro { background: #eef2ff; border-left-color: var(--accent); }
+.callout p { margin: 6px 0; font-size: 14.5px; }
+.callout ul { margin: 6px 0; }
+.callout li { font-size: 14.5px; }
+
+.note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 14px 16px; font-size: 14.5px; margin: 14px 0; }
+.note .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: #92400e; margin-right: 8px; }
+.note p { margin: 4px 0; font-size: 14.5px; }
+.note li { font-size: 14.5px; }
+
+.math-block { background: #f8f8f3; border: 1px dashed #d6d3c7; border-radius: 10px; padding: 14px 18px; margin: 14px 0; font-size: 16px; overflow-x: auto; }
+
+.discuss { background: #ecfeff; border-left: 4px solid var(--accent-2); border-radius: 4px 12px 12px 4px; padding: 14px 18px; margin: 18px 0; }
+.discuss-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.discuss-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #fff; background: var(--accent-2); padding: 3px 10px; border-radius: 999px; }
+.discuss-q { font-size: 15px; font-weight: 700; color: var(--ink); margin: 4px 0; line-height: 1.7; }
+.discuss-hint { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+.discuss-hint summary { cursor: pointer; font-weight: 700; color: var(--accent-2); font-size: 13px; }
+.discuss-hint summary:hover { color: var(--accent); }
+.discuss-hint .body { padding: 8px 0 0; font-size: 13.5px; }
+.discuss-hint .body p, .discuss-hint .body li { font-size: 13.5px; }
+
+.answer-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 14px 16px; margin: 14px 0; }
+.answer-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.answer-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #92400e; background: #fef3c7; padding: 3px 10px; border-radius: 999px; }
+.answer-id { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; color: var(--accent-3); letter-spacing: .06em; }
+.answer-q { font-size: 14px; color: var(--ink); margin: 4px 0 8px; line-height: 1.7; font-weight: 500; }
+textarea.answer-input {
+  width: 100%; min-height: 90px; padding: 10px 12px;
+  border: 1px solid #e5d99c; border-radius: 8px; background: #fffef9;
+  font-family: inherit; font-size: 14px; color: var(--ink); resize: vertical; line-height: 1.6;
+}
+textarea.answer-input:focus { outline: none; border-color: var(--accent-3); background: #ffffff; }
+.answer-save { display: inline-block; margin-top: 6px; font-size: 11.5px; color: var(--muted); }
+.answer-save.saved { color: var(--good); font-weight: 700; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: 12px; color: var(--muted); }
+.legend .item { display: inline-flex; align-items: center; gap: 6px; }
+.legend .sw { width: 16px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend .box { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,.08); }
+.legend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 14px 0; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: center; }
+th { background: #f5f5ef; font-weight: 700; }
+td.lead { text-align: left; font-weight: 700; color: var(--ink); }
+td.left { text-align: left; }
+td.highlight { background: var(--highlight); font-weight: 700; }
+.table-wrap { overflow-x: auto; }
+.num-cell { font-family: "JetBrains Mono", monospace; font-size: 13px; }
+
+.static-graph { background: #fcfcfa; border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px; margin: 14px 0; }
+.static-graph svg { display: block; width: 100%; max-width: 680px; height: auto; margin: 0 auto; }
+.caption { font-size: 12.5px; color: var(--muted); text-align: center; margin-top: 6px; }
+.src { font-size: 12px; color: var(--muted); margin-top: 4px; text-align: right; }
+.src a { color: var(--muted); }
+
+.graph-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin: 18px 0; }
+.graph-title { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: .06em; margin-bottom: 10px; }
+.graph-wrap canvas { display: block; width: 100%; height: 320px; touch-action: none; }
+.controls { display: flex; flex-wrap: wrap; gap: 16px 24px; margin-top: 14px; }
+.control { flex: 1 1 200px; display: flex; flex-direction: column; gap: 4px; }
+.control label { font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+.control input[type=range] { width: 100%; accent-color: var(--accent); }
+.readout {
+  font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--ink);
+  background: #f5f5ef; border-radius: 6px; padding: 3px 8px; display: inline-block;
+}
+.verdict { margin-top: 12px; font-size: 14px; padding: 10px 14px; border-radius: 10px; background: #f8f8f3; border: 1px solid var(--line); }
+.verdict.good { border-color: #a7f3d0; background: #ecfdf5; }
+.verdict.bad  { border-color: #fecaca; background: #fef2f2; }
+.verdict b.good { color: var(--good); }
+.verdict b.bad  { color: var(--danger); }
+
+.goal-list { list-style: none; padding: 0; margin: 12px 0; }
+.goal-list li { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 8px 0; font-size: 14px; }
+.goal-list li .gnum {
+  display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700;
+  color: #fff; background: var(--accent); padding: 2px 8px; border-radius: 999px; margin-right: 8px; letter-spacing: .04em;
+}
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+@media (max-width: 620px) { .split { grid-template-columns: 1fr; } }
+.split .card { margin: 0; }
+.split .card h4 { margin-top: 0; }
+
+.kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+@media (max-width: 620px) { .kv-grid { grid-template-columns: 1fr; } }
+.kv { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+.kv .big { font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 700; color: var(--accent-2); }
+.kv .big.amber { color: var(--accent-3); }
+.kv .lbl { font-size: 12.5px; color: var(--muted); }
+
+.fill { display: inline-block; min-width: 60px; border-bottom: 1.5px solid var(--accent-3); text-align: center; color: var(--accent-3); font-weight: 700; padding: 0 4px; }
+.fills-hidden .fill { color: transparent; user-select: none; }
+.toggle-btn {
+  font-family: inherit; font-size: 12.5px; font-weight: 700; color: var(--accent-3);
+  background: #fff7ed; border: 1px solid #fed7aa; border-radius: 999px; padding: 4px 14px; cursor: pointer;
+}
+.toggle-btn:hover { background: #ffedd5; }
+
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+@media (max-width: 620px) { .steps3 { grid-template-columns: 1fr; } }
+.stepbox { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 15px; }
+.stepbox .sn { font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 700; color: var(--accent-2); line-height: 1; }
+.stepbox .st { font-size: 14px; font-weight: 700; color: var(--ink); margin: 5px 0 2px; }
+.stepbox .sd { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: #fff; }
+.seg button {
+  font-family: inherit; font-size: 12.5px; font-weight: 700; color: var(--ink-soft);
+  background: transparent; border: 0; padding: 5px 14px; cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button.on { background: var(--accent); color: #fff; }
+
+.footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); text-align: center; }
+a.inline-link { color: var(--accent-2); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.chip { font-size: 13px; padding: 3px 11px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink-soft); }
+.chip.both { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
+.chip.new { border: 1.5px dashed var(--accent-3); color: var(--accent-3); font-weight: 700; }
+
+.status-list { list-style: none; padding: 0; margin: 12px 0; }
+.status-list li { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: start; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 8px 0; font-size: 14px; }
+.status-list .sw { width: 14px; height: 14px; border-radius: 3px; margin-top: 5px; }
+.status-list .nm { font-weight: 700; color: var(--ink); }
+.status-list .ds { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.status-list .ct { font-family: "JetBrains Mono", monospace; font-size: 15px; font-weight: 700; color: var(--accent-2); white-space: nowrap; }
+
+table.surplus td { font-family: "JetBrains Mono", monospace; }
+table.surplus td.lead { font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="eyebrow">労働経済論 後期第4回 補助教材</div>
+  <h1>外国人労働者 ― 受け入れると賃金は下がるのか</h1>
+  <div class="sub">日本で働く外国人は257万人を超え、この10年で約2.8倍になった。「人手不足だから必要」「日本人の仕事を奪い賃金を下げる」という典型的な議論は、どこまで正しいのか。基本的な需給モデルから出発し、自国民の移動、企業の技術選択、代替と補完、外部性の内部化、そして「外国人が日本を選ぶのか」という供給側の視点まで、理論と実証研究の両面から考える</div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#intro">
+    <div class="num">00 / INTRO</div>
+    <div class="ttl">前回の復習と本日のゴール</div>
+    <div class="desc">女性の労働と男性の労働の穴埋め</div>
+  </a>
+  <a href="#status">
+    <div class="num">01 / 現状</div>
+    <div class="ttl">データで見る外国人労働者</div>
+    <div class="desc">在留資格別の推移／国籍・産業・地域の偏り</div>
+  </a>
+  <a href="#ssw">
+    <div class="num">02 / 制度</div>
+    <div class="ttl">在留資格「特定技能」</div>
+    <div class="desc">人手不足の19分野／1号と2号の違い</div>
+  </a>
+  <a href="#debate">
+    <div class="num">03 / 議論</div>
+    <div class="ttl">「典型的な議論」とその問題点</div>
+    <div class="desc">賛成・反対の論点／住み分けと技術選択／データの制約</div>
+  </a>
+  <a href="#model">
+    <div class="num">04 / 需給モデル</div>
+    <div class="ttl">基本的な需給モデルと余剰</div>
+    <div class="desc">誰が得をして誰が損をするのか／シミュレーター</div>
+  </a>
+  <a href="#extend">
+    <div class="num">05 / 拡張</div>
+    <div class="ttl">自国民の移動・技術選択・代替と補完</div>
+    <div class="desc">賃金が下がらない理由／同質か異質か</div>
+  </a>
+  <a href="#evidence">
+    <div class="num">06 / 実証研究</div>
+    <div class="ttl">日本と海外の実証研究</div>
+    <div class="desc">中村他（2009）／Lewis（2011）／Borjas・Card・Ottaviano and Peri</div>
+  </a>
+  <a href="#concern">
+    <div class="num">07 / 懸念と外部性</div>
+    <div class="ttl">懸念の払拭と外部性の内部化</div>
+    <div class="desc">犯罪率の研究／日本語要件と生活ルール／内部化を動かす</div>
+  </a>
+  <a href="#future">
+    <div class="num">08 / これから</div>
+    <div class="ttl">供給側の視点と日本人労働者への影響</div>
+    <div class="desc">日本は選ばれるか／受け入れなければロボットが来る</div>
+  </a>
+  <a href="#task">
+    <div class="num">09 / 検討課題</div>
+    <div class="ttl">理論モデルを考えてみよう</div>
+    <div class="desc">余剰の表を埋める／内部化の方法／日本が選ばれる条件</div>
+  </a>
+  <a href="#summary">
+    <div class="num">10 / SUMMARY</div>
+    <div class="ttl">まとめと次回までの課題</div>
+    <div class="desc">本日のポイント／参考文献／働き方の未来の事前学習</div>
+  </a>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <h2 class="section-title"><span class="step-badge intro">INTRO</span>前回の復習と本日のゴール</h2>
+
+  <p>後期第3回では、<strong>女性の労働と男性の労働</strong>を比べ、格差がどこから生まれるのかを考えた。今回は「多様な働き方」の4回目として、<strong>外国人労働者</strong>を扱う。</p>
+
+  <h3>前回の穴埋め ― 言葉を思い出そう</h3>
+  <p style="margin-bottom:6px;"><button type="button" class="toggle-btn" id="fillToggle">答えを隠す</button></p>
+  <div class="card" id="fillCard">
+    <ul>
+      <li>女性の年齢階層別の労働力率の変化は、その形状から<span class="fill">M字カーブ</span>と呼ばれていた。
+        <ul>
+          <li>これは<span class="fill">結婚</span>や<span class="fill">出産</span>を機に離職し、子育てが一段落してから労働市場に再び出る女性が存在することが理由であった。</li>
+          <li>しかし近年、その落ち込みの程度は弱まっている。</li>
+        </ul>
+      </li>
+      <li>世帯内での男女間の分業は、<span class="fill">比較優位</span>の原理から説明することも可能。
+        <ul>
+          <li>賃金労働と家事労働を半分ずつこなすのではなく、相対的に得意な分野を担当することで双方が得できる余地がある。</li>
+        </ul>
+      </li>
+      <li>男女の賃金は、100対<span class="fill">76.6</span>であり、時間を通じて格差は減ってきたが、まだ残っている。</li>
+      <li>男女間で<span class="fill">人的資本投資</span>に差があれば、結果的に労働市場において賃金格差が発生する。</li>
+      <li>また就業を<span class="fill">中断</span>する可能性が高い場合には、<span class="fill">企業特殊的</span>訓練を受ける機会が得られないことも考えられる。</li>
+      <li>女性が仕事面で活躍を続けるためには、教育訓練を積極的に受けるだけでなく、どのような相手と<span class="fill">結婚</span>するのかも重要となる。</li>
+    </ul>
+  </div>
+
+  <div class="callout intro">
+    <p>今回のカギは、<strong>「外国人が入ってくる → 労働供給が増える → 賃金が下がる」という一本道の推論を、どこで疑えるか</strong>ということ。外国人は日本人と<strong>同じ仕事</strong>をするのか。日本人は<strong>同じ場所にとどまる</strong>のか。企業は<strong>同じ技術</strong>を使い続けるのか。前提を一つずつ動かすと、結論は大きく変わる。</p>
+  </div>
+
+  <h3>本日のゴール</h3>
+  <ol class="goal-list">
+    <li><span class="gnum">G1</span>外国人労働者数の推移と、<strong>在留資格・国籍・産業・地域</strong>の偏りをデータで説明できる</li>
+    <li><span class="gnum">G2</span>在留資格<strong>「特定技能」</strong>の目的と、1号・2号の違いを説明できる</li>
+    <li><span class="gnum">G3</span>基本的な需給モデルで、受け入れによる<strong>企業・既存労働者・移民労働者・総余剰</strong>の変化を図で示せる</li>
+    <li><span class="gnum">G4</span><strong>自国民の移動</strong>や<strong>技術選択</strong>、<strong>代替・補完</strong>の関係によって、賃金が下がらない可能性を説明できる</li>
+    <li><span class="gnum">G5</span>日本と海外の<strong>実証研究</strong>の主な結果を、理論と結びつけて説明できる</li>
+    <li><span class="gnum">G6</span>生活面の懸念を<strong>外部性</strong>として捉え、それを<strong>内部化</strong>する方法を考えられる</li>
+  </ol>
+</section>
+
+<!-- STATUS -->
+<section id="status">
+  <h2 class="section-title"><span class="step-badge s-teal">現状</span>データで見る外国人労働者</h2>
+
+  <p>日本で働く外国人の基本資料は、厚生労働省「<strong>『外国人雇用状況』の届出状況まとめ</strong>」である。事業主には、外国人を雇い入れたときや離職したときに、氏名・在留資格・在留期間などをハローワークへ届け出ることが義務づけられており、その集計結果が毎年公表される（特別永住者や在留資格「外交」「公用」の者は対象外）。</p>
+
+  <div class="kv-grid">
+    <div class="kv"><div class="big">257.1<span style="font-size:13px;"> 万人</span></div><div class="lbl">外国人労働者数（2025年10月末）。前年比11.7％増で、過去最多を更新</div></div>
+    <div class="kv"><div class="big amber">約2.8<span style="font-size:13px;"> 倍</span></div><div class="lbl">10年前（2015年の90.8万人）と比べた増加。2008年は48.6万人だった</div></div>
+  </div>
+
+  <h3>在留資格別外国人労働者数の推移</h3>
+  <p>外国人は、以前から<strong>専門的・技術的分野</strong>については就労目的での在留が認められていた。大学教授や高度専門職が含まれる。そのほかに、<strong>日系人や永住者</strong>（身分に基づく在留資格）、<strong>技能実習生</strong>なども存在した。下のボタンで在留資格を選ぶと、その推移が強調される。</p>
+
+  <div class="static-graph">
+    <div style="margin-bottom:10px;text-align:center;">
+      <div class="seg" id="stSeg" style="flex-wrap:wrap;">
+        <button type="button" data-k="all" class="on">すべて</button>
+        <button type="button" data-k="0">身分</button>
+        <button type="button" data-k="1">資格外活動</button>
+        <button type="button" data-k="2">技能実習</button>
+        <button type="button" data-k="3">特定活動</button>
+        <button type="button" data-k="4">専門的・技術的</button>
+      </div>
+    </div>
+    <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="在留資格別外国人労働者数の推移（2008年から2025年）の積み上げ棒グラフ">
+      <g id="statusBars"></g>
+    </svg>
+    <div class="legend" style="justify-content:center;">
+      <span class="item"><span class="box" style="background:#0e7490"></span>身分に基づく在留資格</span>
+      <span class="item"><span class="box" style="background:#d6a35c"></span>資格外活動</span>
+      <span class="item"><span class="box" style="background:#b45309"></span>技能実習</span>
+      <span class="item"><span class="box" style="background:#cbd5e1"></span>特定活動</span>
+      <span class="item"><span class="box" style="background:#1e3a8a"></span>専門的・技術的分野</span>
+    </div>
+    <div class="caption">在留資格別外国人労働者数（各年10月末、千人）。棒にカーソルを合わせると内訳が表示される</div>
+  </div>
+  <p class="src">出典：厚生労働省「『外国人雇用状況』の届出状況まとめ（令和7年10月末現在）」図1-1（スライドの数値から作図）</p>
+
+  <div class="callout">
+    <p>増加をけん引しているのは<strong>専門的・技術的分野</strong>で、2015年の16.7万人から2025年には<strong>86.6万人</strong>へと5倍以上になった。後で見る<strong>「特定技能」がこの区分に含まれる</strong>ことが大きい。増加率は2020〜21年にコロナ禍で落ち込んだが、2023年以降は再び年10％を超える伸びが続いている。</p>
+  </div>
+
+  <h3>日本で就労する外国人のカテゴリー</h3>
+  <p>出入国管理及び難民認定法（入管法）上、外国人は次の5つの形態で働くことができる。</p>
+  <ul class="status-list">
+    <li><span class="sw" style="background:#1e3a8a"></span><div><div class="nm">① 就労目的で在留が認められる者（専門的・技術的分野）</div><div class="ds">教授、高度専門職、経営・管理、法律・会計業務、医療、研究、教育、技術・人文知識・国際業務、企業内転勤、介護、技能、特定技能など</div></div><span class="ct">86.6万人</span></li>
+    <li><span class="sw" style="background:#cbd5e1"></span><div><div class="nm">② 特定活動</div><div class="ds">経済連携協定（EPA）に基づく外国人看護師・介護福祉士候補者、ワーキング・ホリデーなど。個々の許可の内容により就労の可否が決まる</div></div><span class="ct">11.1万人</span></li>
+    <li><span class="sw" style="background:#b45309"></span><div><div class="nm">③ 技能実習</div><div class="ds">技能移転を通じた開発途上国への国際協力が目的。2010年7月施行の改正入管法により、入国1年目から雇用関係のある「技能実習」の在留資格が付与されるようになった</div></div><span class="ct">49.9万人</span></li>
+    <li><span class="sw" style="background:#d6a35c"></span><div><div class="nm">④ 資格外活動（留学生のアルバイトなど）</div><div class="ds">本来の在留資格の活動を阻害しない範囲内（1週28時間以内など）で、相当と認められる場合に報酬を受ける活動が許可される</div></div><span class="ct">44.9万人</span></li>
+    <li><span class="sw" style="background:#0e7490"></span><div><div class="nm">⑤ 身分に基づき在留する者</div><div class="ds">「永住者」「日本人の配偶者等」「永住者の配偶者等」「定住者」（主に日系人）。在留中の活動に制限がないため、様々な分野で働ける</div></div><span class="ct">64.6万人</span></li>
+  </ul>
+  <p class="src">出典：厚生労働省ホームページ「外国人雇用対策」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/gaikokujin/index.html" target="_blank" rel="noopener">mhlw.go.jp</a>（令和7年10月末時点）</p>
+
+  <h3>国籍別の外国人労働者</h3>
+  <div class="static-graph">
+    <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="国籍別外国人労働者数。ベトナム、中国、フィリピン、ネパール、インドネシアの順に多い">
+      <g id="natBars"></g>
+    </svg>
+    <div class="caption">国籍別外国人労働者数（2025年10月末、人）と全体に占める割合</div>
+  </div>
+  <p class="src">出典：厚生労働省「『外国人雇用状況』の届出状況まとめ（令和7年10月末現在）」図3</p>
+  <p><strong>ベトナム</strong>（23.6％）が最も多く、<strong>中国</strong>（16.8％）、<strong>フィリピン</strong>（10.1％）が続く。近年は<strong>ネパール・インドネシア・ミャンマー</strong>が急速に増えている。かつて多かった<strong>ブラジル・ペルー</strong>は、主に日系人（身分に基づく在留資格）である。</p>
+
+  <h3>特定の産業と地域に集中している</h3>
+  <div class="static-graph">
+    <svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="産業別外国人労働者数。製造業が最も多く24.7％">
+      <g id="indBars"></g>
+    </svg>
+    <div class="caption">産業別外国人労働者数（2025年10月末、人）と全体に占める割合</div>
+  </div>
+  <p class="src">出典：厚生労働省「『外国人雇用状況』の届出状況まとめ（令和7年10月末現在）」図6</p>
+
+  <div class="split">
+    <div class="card">
+      <h4>産業の偏り</h4>
+      <p style="font-size:14px;"><strong>製造業</strong>が約4分の1（24.7％）で最多。サービス業（他に分類されないもの）、卸売業・小売業、宿泊業・飲食サービス業が続く。<strong>人手不足が深刻な現場</strong>に集中している。</p>
+    </div>
+    <div class="card">
+      <h4>地域の偏り</h4>
+      <p style="font-size:14px;"><strong>東京都</strong>が突出して多く、<strong>愛知県・大阪府・神奈川県・埼玉県・千葉県</strong>が続く。愛知・静岡・群馬など<strong>製造業の集積地</strong>も多い。一方、東北や山陰・四国の県は少ない。</p>
+    </div>
+  </div>
+
+  <div class="callout step2">
+    <p>外国人労働者は<strong>特定の地域や産業で働くことが多い</strong>。全国平均で見れば労働者の4％弱でも、特定の地域・産業では比率がずっと高くなる。そのため、<strong>そのような地域と産業では国内労働者の賃金低下につながる可能性</strong>が指摘されてきた。この懸念が本当に正しいかを、後半で理論と実証の両面から検討する。</p>
+  </div>
+</section>
+
+<!-- SSW -->
+<section id="ssw">
+  <h2 class="section-title"><span class="step-badge s-amber">制度</span>在留資格「特定技能」</h2>
+
+  <p>2019年4月より、外国人労働者受け入れの新しい在留資格<strong>「特定技能」</strong>が導入された。<strong>人手不足が深刻な特定産業分野（19分野）</strong>に限定した制度である。</p>
+
+  <h3>特定産業分野（19分野）</h3>
+  <div class="chips">
+    <span class="chip">介護</span>
+    <span class="chip both">ビルクリーニング</span>
+    <span class="chip new">リネンサプライ</span>
+    <span class="chip both">工業製品製造業</span>
+    <span class="chip both">建設</span>
+    <span class="chip both">造船・舶用工業</span>
+    <span class="chip both">自動車整備</span>
+    <span class="chip both">航空</span>
+    <span class="chip both">宿泊</span>
+    <span class="chip">自動車運送業</span>
+    <span class="chip">鉄道</span>
+    <span class="chip new">物流倉庫</span>
+    <span class="chip both">農業</span>
+    <span class="chip both">漁業</span>
+    <span class="chip both">飲食料品製造</span>
+    <span class="chip both">外食業</span>
+    <span class="chip">林業</span>
+    <span class="chip">木材産業</span>
+    <span class="chip new">資源循環</span>
+  </div>
+  <div class="legend">
+    <span class="item"><span class="box" style="background:#1e3a8a"></span>特定技能1号・2号で受け入れ可能（11分野）</span>
+    <span class="item"><span class="box" style="background:#fff"></span>1号のみ</span>
+    <span class="item"><span class="box" style="background:#fff;border:1.5px dashed #b45309"></span>2026年1月23日に追加が閣議決定（1号のみ）</span>
+  </div>
+  <p class="src">制度の概要：出入国在留管理庁「特定技能制度」<a href="https://www.moj.go.jp/isa/applications/ssw/index.html" target="_blank" rel="noopener">moj.go.jp</a></p>
+
+  <h3>特定技能1号と2号</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>特定技能1号</th><th>特定技能2号</th></tr></thead>
+      <tbody>
+        <tr><td class="lead">求められる技能</td><td class="left">相当程度の知識または経験を必要とする技能</td><td class="left"><strong>熟練した技能</strong></td></tr>
+        <tr><td class="lead">日本語能力</td><td class="left">ある程度日常会話ができ、生活に支障がない程度の能力を基本としつつ、特定産業分野ごとに業務上必要な日本語能力水準が求められる</td><td class="left">分野によっては日本語能力の要件も課される</td></tr>
+        <tr><td class="lead">在留期間</td><td class="left">通算<strong>5年まで</strong></td><td class="left highlight">更新に<strong>上限なし</strong></td></tr>
+        <tr><td class="lead">家族の帯同</td><td class="left">不可</td><td class="left highlight">可（配偶者・子）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <p>特定技能は、<strong>「人手不足を補うために、一定の技能を持つ外国人を労働者として受け入れる」</strong>ことを正面から認めた制度である。技能実習が建前上「国際貢献（技能移転）」を目的としていたのと対照的である。さらに2号に移れば在留期間の上限がなくなり家族も呼べるので、<strong>長く日本で働き、暮らす人</strong>を想定した制度になっている。</p>
+  </div>
+
+  <div class="discuss">
+    <div class="discuss-head"><span class="discuss-tag">考えてみよう</span></div>
+    <div class="discuss-q">1号は「通算5年まで・家族帯同不可」、2号は「上限なし・家族帯同可」。この違いは、本人や企業の人的資本投資（技能や日本語の習得）にどのような影響を与えるだろうか。</div>
+    <div class="discuss-hint">
+      <details>
+        <summary>考えるヒント</summary>
+        <div class="body">
+          <ul>
+            <li>前期の人的資本理論を思い出そう。投資の収益を回収できる<strong>期間が長いほど</strong>、投資は割に合う。</li>
+            <li>5年で帰国すると分かっていれば、本人も企業も、<strong>日本語や企業特殊的スキル</strong>への投資をためらうかもしれない。前回の「就業中断の可能性と訓練機会」と同じ構造である。</li>
+            <li>2号への道があれば、長く働くことを前提に投資しやすくなる。一方で、家族の生活や子どもの教育など、<strong>地域社会の側の準備</strong>も必要になる。</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- DEBATE -->
+<section id="debate">
+  <h2 class="section-title"><span class="step-badge s-teal">議論</span>「典型的な議論」とその問題点</h2>
+
+  <h3>外国人労働者導入の典型的な議論</h3>
+  <p>日本は専門的・技術的分野では外国人労働者を受け入れてきた。<strong>それでは、外国人の単純労働者を受け入れるべきか？</strong></p>
+  <div class="split">
+    <div class="card">
+      <h4>賛成意見</h4>
+      <ul>
+        <li><strong>人手不足</strong>なので必要</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>反対意見</h4>
+      <ol>
+        <li>日本人労働者の<strong>仕事を奪う</strong> → 賃金低下要因となる</li>
+        <li>コミュニケーションや生活ルールの面で<strong>負の外部性</strong>が存在する</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>「典型的な議論」の問題点</h3>
+  <div class="card">
+    <ul>
+      <li>外国人労働者が日本に入って、<strong>日本人労働者と同じ仕事をするとは限らない</strong>。
+        <ul>
+          <li>日本語能力の違いにより、単純作業が中心になる。</li>
+          <li>日本人は別の仕事に就くような<strong>住み分け</strong>が発生する可能性がある。</li>
+        </ul>
+      </li>
+      <li><strong>企業の技術選択に歪み</strong>が生じる → 産業の高度化が遅れるなどの<strong>波及効果</strong>も考える必要がある。</li>
+    </ul>
+  </div>
+
+  <h3>影響を実証的に示すのは難しかった</h3>
+  <p>外国人労働者が日本に入ることの影響を理解することが重要だが、昔は実証的に示すのが難しい環境にあった。そもそも<strong>外国人労働者に関するデータが極めて少なかった</strong>のである（令和元年から「賃金構造基本統計調査」でも調査項目が追加された）。それでも経済学では検討が進められてきた。</p>
+  <div class="steps3">
+    <div class="stepbox">
+      <div class="sn">1980s</div>
+      <div class="st">理論面での検討</div>
+      <div class="sd">1980年代後半から、外国人労働者問題の経済学的な側面が理論的に検討された（樋口 1988）。</div>
+    </div>
+    <div class="stepbox">
+      <div class="sn">2000s</div>
+      <div class="st">データに基づく分析</div>
+      <div class="sd">2000年代後半から、データを用いた影響分析が行われるようになった（中村他 2009）。</div>
+    </div>
+    <div class="stepbox">
+      <div class="sn">2019〜</div>
+      <div class="st">公的統計の整備</div>
+      <div class="sd">賃金構造基本統計調査に外国人労働者の項目が加わり、賃金の実態が把握しやすくなった。</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model">
+  <h2 class="section-title"><span class="step-badge s-amber">需給モデル</span>基本的な需給モデルと余剰</h2>
+
+  <p>まずは最も単純なケースから考える。<strong>単純労働で比較的同質な労働力</strong>を想定する（クリーニング業などが例示されることが多い）。</p>
+  <ul>
+    <li>移民の流入は、<strong>労働供給の増加</strong>（供給曲線の右シフト）である。</li>
+    <li><strong>総余剰は増加する</strong>が、<strong>均衡賃金は低下する</strong>。</li>
+    <li>労働者を雇用する<strong>企業</strong>、その産業の<strong>労働者</strong>の視点からは、どのように評価できるか？</li>
+  </ul>
+
+  <div class="static-graph">
+    <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="労働市場の需給図。外国人労働者の参入で供給曲線がSJからSJ+Fへ右にシフトし、賃金が低下する。余剰をAからEの領域で示す">
+      <g font-family="Noto Sans JP, sans-serif">
+        <polygon points="60,160 220,160 60,80" fill="rgba(180,83,9,.16)"/>
+        <polygon points="60,180 180,180 220,160 60,160" fill="rgba(185,28,28,.20)"/>
+        <polygon points="180,180 220,160 260,180" fill="rgba(4,120,87,.30)"/>
+        <polygon points="60,240 180,180 60,180" fill="rgba(30,58,138,.16)"/>
+        <polygon points="60,280 140,280 140,240 260,180 180,180 60,240" fill="rgba(14,116,144,.20)"/>
+        <line x1="60" y1="30" x2="60" y2="280" stroke="#6b7280" stroke-width="1.4"/>
+        <line x1="60" y1="280" x2="500" y2="280" stroke="#6b7280" stroke-width="1.4"/>
+        <line x1="60" y1="160" x2="220" y2="160" stroke="#6b7280" stroke-dasharray="4 3"/>
+        <line x1="60" y1="180" x2="260" y2="180" stroke="#6b7280" stroke-dasharray="4 3"/>
+        <line x1="60" y1="80" x2="460" y2="280" stroke="#b45309" stroke-width="2.6"/>
+        <polyline points="60,280 60,240 380,80" fill="none" stroke="#1e3a8a" stroke-width="2.4"/>
+        <polyline points="140,280 140,240 460,80" fill="none" stroke="#0e7490" stroke-width="2.4"/>
+        <circle cx="220" cy="160" r="4.5" fill="#1f2937" stroke="#fff" stroke-width="1.5"/>
+        <circle cx="260" cy="180" r="4.5" fill="#1f2937" stroke="#fff" stroke-width="1.5"/>
+        <g font-size="15" font-weight="700" fill="#1f2937" font-style="italic">
+          <text x="88" y="150">A</text>
+          <text x="104" y="176">B</text>
+          <text x="214" y="176" font-size="12">C</text>
+          <text x="84" y="210">D</text>
+          <text x="150" y="232">E</text>
+        </g>
+        <g font-size="13" font-family="JetBrains Mono, monospace">
+          <text x="50" y="164" text-anchor="end" fill="#1f2937">w₀</text>
+          <text x="50" y="184" text-anchor="end" fill="#1f2937">w₁</text>
+          <text x="388" y="78" fill="#1e3a8a" font-weight="700">S<tspan font-size="10" dy="4">J</tspan></text>
+          <text x="468" y="78" fill="#0e7490" font-weight="700">S<tspan font-size="10" dy="4">J+F</tspan></text>
+          <text x="466" y="276" fill="#b45309" font-weight="700">D</text>
+          <text x="66" y="40" fill="#4b5563">w（賃金）</text>
+          <text x="500" y="300" fill="#4b5563" text-anchor="end">h（労働量）</text>
+          <text x="52" y="296" fill="#4b5563" text-anchor="end">O</text>
+        </g>
+        <g font-size="12" fill="#4b5563">
+          <text x="520" y="120">外国人労働者 F が</text>
+          <text x="520" y="138">市場に入ると？</text>
+          <text x="520" y="170" fill="#1f2937">賃金：w₀ → w₁</text>
+        </g>
+      </g>
+    </svg>
+    <div class="caption">外国人労働者は賃金によらず一定量 $F$ を供給すると仮定する。供給曲線は、縦軸上の部分も含めて日本人労働者の供給 $S_J$ を $F$ だけ右に平行移動した $S_{J+F}$ になる</div>
+  </div>
+
+  <h3>余剰はどう変わるか</h3>
+  <p>図の記号を使って、受け入れの前後の余剰を表にまとめよう。まず自分で考えてから、答えを表示して確かめよう（検討課題1でも使う）。</p>
+  <p style="margin-bottom:6px;"><button type="button" class="toggle-btn" id="surplusToggle">答えを表示する</button></p>
+  <div class="table-wrap fills-hidden" id="surplusCard">
+    <table class="surplus">
+      <thead><tr><th></th><th>受入前</th><th>受入後</th><th>変化</th></tr></thead>
+      <tbody>
+        <tr><td class="lead">企業</td><td><span class="fill">A</span></td><td><span class="fill">A＋B＋C</span></td><td><span class="fill">＋B＋C</span></td></tr>
+        <tr><td class="lead">既存労働者</td><td><span class="fill">B＋D</span></td><td><span class="fill">D</span></td><td><span class="fill">−B</span></td></tr>
+        <tr><td class="lead">移民労働者</td><td><span class="fill">―</span></td><td><span class="fill">E</span></td><td><span class="fill">＋E</span></td></tr>
+        <tr><td class="lead">総余剰</td><td><span class="fill">A＋B＋D</span></td><td><span class="fill">A〜E</span></td><td><span class="fill">＋C＋E</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <p><strong>B</strong> は、賃金の低下によって<strong>既存労働者から企業へ移転</strong>する部分である。企業はさらに、雇用が増えることによる <strong>C</strong> を得る。移民労働者は <strong>E</strong> を得る。したがって<strong>総余剰は C＋E だけ増える</strong>が、<strong>既存労働者は B だけ損をする</strong>。「国全体としては得をするが、損をする人がいる」という構図は、前期に学んだ貿易の自由化と同じである。</p>
+  </div>
+
+  <h3>シミュレーター ― 前提を動かしてみよう</h3>
+  <p>下の図では、外国人労働者の数 $F$ に加えて、<strong>日本人労働者の他地域・他産業への転出</strong>と、<strong>労働需要の増加</strong>（技術選択の変化）を動かせる。後の節で説明する3つのケースをボタンで切り替えて、賃金と余剰がどう変わるか確かめよう。</p>
+
+  <div class="graph-wrap">
+    <div class="graph-title">外国人労働者の受け入れと労働市場 ― 賃金は本当に下がるのか</div>
+    <div style="margin-bottom:10px;">
+      <div class="seg" id="lmSeg" style="flex-wrap:wrap;">
+        <button type="button" data-k="base" class="on">同質な参入</button>
+        <button type="button" data-k="move">自国民が転出</button>
+        <button type="button" data-k="tech">技術選択（需要増）</button>
+      </div>
+    </div>
+    <canvas id="lmCanvas" aria-label="横軸に労働量、縦軸に賃金をとり、日本人の供給曲線、外国人を加えた供給曲線、需要曲線と余剰を示す図"></canvas>
+    <div class="controls">
+      <div class="control">
+        <label for="lmF">外国人労働者の数 $F$：<span class="readout" id="lmFOut">4</span></label>
+        <input type="range" id="lmF" min="0" max="8" step="0.5" value="4">
+      </div>
+      <div class="control">
+        <label for="lmM">日本人の転出 $m$：<span class="readout" id="lmMOut">0</span></label>
+        <input type="range" id="lmM" min="0" max="6" step="0.5" value="0">
+      </div>
+      <div class="control">
+        <label for="lmD">労働需要の増加 $\delta$：<span class="readout" id="lmDOut">0</span></label>
+        <input type="range" id="lmD" min="0" max="3" step="0.25" value="0">
+      </div>
+    </div>
+    <div class="legend">
+      <span class="item"><span class="sw" style="background:#b45309"></span>需要 $D$</span>
+      <span class="item"><span class="sw" style="background:#1e3a8a"></span>日本人の供給 $S_J$</span>
+      <span class="item"><span class="sw" style="background:#0e7490"></span>外国人を加えた供給 $S_J+F$</span>
+      <span class="item"><span class="box" style="background:rgba(180,83,9,.18)"></span>企業の余剰</span>
+      <span class="item"><span class="box" style="background:rgba(30,58,138,.18)"></span>日本人労働者の余剰</span>
+      <span class="item"><span class="box" style="background:rgba(14,116,144,.22)"></span>外国人労働者の余剰</span>
+    </div>
+    <div class="table-wrap">
+      <table class="surplus" id="lmTable" style="font-size:13px;"></table>
+    </div>
+    <div class="verdict" id="lmVerdict"></div>
+  </div>
+  <p class="src">注：需要 $w = 10 + \delta - 0.5h$、日本人の供給 $w = 2 + 0.5(h + m)$、外国人は賃金によらず一定量 $F$ を供給する（外国人を加えた供給は、縦軸上の部分も含めて日本人の供給を $F$ だけ右に平行移動したもの）という説明のための仮の設定。点線は受け入れ前の状態を表す。</p>
+</section>
+
+<!-- EXTEND -->
+<section id="extend">
+  <h2 class="section-title"><span class="step-badge s-teal">拡張</span>自国民の移動・技術選択・代替と補完</h2>
+
+  <h3>同質的な労働者が参入すると賃金は下がるはず ― しかし</h3>
+  <p>日本人労働者と同質的な外国人が単純労働力の市場に入ると、均衡賃金が低下するはずである。ところが、Bauer and Zimmermann（1999）など<strong>諸外国の実証研究のサーベイ</strong>からは、<strong>必ずしも自国民の賃金の低下が起こらない</strong>ことが見て取れる。なぜだろうか。</p>
+
+  <h3>理由1：自国民が他地域・他産業へ移動する</h3>
+  <div class="card">
+    <ul>
+      <li>外国人が特定地域の単純労働力市場に入ることを予期すると、<strong>自国労働者が他地域や他産業へと移動する</strong>のではないか？ → 当該地域での供給が減る（$S_J \to S'_J$）。</li>
+      <li>その結果、外国人が参入しても<strong>有意な賃金低下が起こらない</strong>可能性がある。</li>
+      <li>転出で相殺されるという主張（<strong>Borjas</strong>）と、されないという結果（<strong>Card</strong>）がある。</li>
+      <li><strong>自国民の労働供給行動がどう変わるのか</strong>も含めて検討することが必要である。</li>
+    </ul>
+  </div>
+  <div class="note">
+    <span class="tag">補足</span>
+    <p>Card（1990）は、1980年にキューバから約12.5万人がマイアミに渡った「マリエル・ボートリフト」を自然実験として分析し、マイアミの労働者の賃金や失業率に目立った影響が見られなかったことを示した。これに対し Borjas は、同じ出来事を学歴の低い労働者に絞って再分析し、賃金が下がっていたと主張している。<strong>同じ出来事でも、比較の仕方によって結論が分かれうる</strong>例である。</p>
+  </div>
+  <p>シミュレーターで「<a class="inline-link" href="#model">自国民が転出</a>」を選ぶと、日本人の供給曲線が左にシフトし、外国人が入っても賃金がほとんど下がらないことが確かめられる。ただし、移動した日本人は<strong>移動費用</strong>を負担しているので、賃金が下がらないからといって日本人が損をしていないとは限らない（<a class="inline-link" href="#future">08</a>で再び扱う）。</p>
+
+  <h3>理由2：企業の技術選択が変わる</h3>
+  <div class="card">
+    <ul>
+      <li>労働集約的な生産には、一定の労働者が必要となる。</li>
+      <li>労働力が不足すれば、<strong>資本集約的な生産活動</strong>が行われる（機械化・自動化、あるいは事業の縮小や海外移転）。</li>
+      <li>外国人労働者が入ってくることで<strong>従来の労働集約型の生産活動が可能になる</strong>とき、<strong>労働需要が増える</strong>可能性もある（$D \to D'$）。</li>
+    </ul>
+  </div>
+  <p>シミュレーターで「<a class="inline-link" href="#model">技術選択（需要増）</a>」を選ぶと、供給の増加と需要の増加が同時に起こり、賃金の低下が打ち消される。<strong>ただし</strong>、これは「本来なら進んだはずの機械化や生産性の向上が遅れる」ことの裏返しでもある（<a class="inline-link" href="#evidence">06 実証研究</a>の Lewis 2011 を参照）。</p>
+
+  <h3>外国人労働者は日本人と同質か</h3>
+  <div class="split">
+    <div class="card">
+      <h4>同質であるとき</h4>
+      <ul>
+        <li>基本は<strong>代替的</strong>（同じ仕事を取り合う）。</li>
+        <li>ただし生産活動に<strong>一定の人数が必要</strong>な場合には、<strong>補完的</strong>になることもある（人が揃わないと工場や店舗が動かない）。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>異質であるとき</h4>
+      <ul>
+        <li><strong>代替的</strong>なら、日本で働く既存の労働者と競合し、<strong>賃金を下げる</strong>可能性がある。</li>
+        <li><strong>補完的</strong>なら、日本で働く既存の労働者にとっても<strong>利益になりうる</strong>（例：外国人が現場作業を担い、日本人が管理・調整を担う）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout step2">
+    <p>過去の研究からは、外国人労働者の導入は<strong>相対的にスキルの低い労働者の賃金</strong>に影響を与えることが指摘されている。<strong>非熟練労働者は代替的</strong>なことが多いからである。</p>
+    <p>日本は「単純労働者は受け入れていない」ことが建前だった。以前は<strong>人材育成を通じた国際貢献</strong>が目的とされていたが（技能実習）、現在は<strong>人材育成と人材確保</strong>が目標になった（特定技能、そして技能実習に代わる「育成就労」制度）。</p>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section id="evidence">
+  <h2 class="section-title"><span class="step-badge s-amber">実証研究</span>日本と海外の実証研究</h2>
+
+  <h3>日本：中村他（2009）の主要な結果</h3>
+  <div class="card">
+    <ul>
+      <li>外国人雇用は<strong>男性の賃金を引き上げる</strong>が、<strong>女性については効果がないか引き下げる</strong>。</li>
+      <li>外国人を雇用している事業所ほど、<strong>高卒者の初任給が高い</strong>。</li>
+      <li>一部の日本人労働者については、外国人雇用が<strong>正の影響</strong>を与える（特に<strong>高卒男性</strong>）。</li>
+    </ul>
+  </div>
+
+  <h3>理論的可能性と実証分析の結果</h3>
+  <p>理論で考えた「日本人の反応」は、実際に観察されている。</p>
+  <div class="steps3">
+    <div class="stepbox">
+      <div class="sn">1</div>
+      <div class="st">他地域への労働移動</div>
+      <div class="sd">主に高卒男性は、外国人の少ない地域に移動する。</div>
+    </div>
+    <div class="stepbox">
+      <div class="sn">2</div>
+      <div class="st">労働市場からの退出</div>
+      <div class="sd">主に既婚女性の労働市場からの退出確率が上昇する。</div>
+    </div>
+    <div class="stepbox">
+      <div class="sn">3</div>
+      <div class="st">キャリア選択の変化</div>
+      <div class="sd">進学率が高まるなど、外国人と競合しない方向へ人的資本投資が進む。</div>
+    </div>
+  </div>
+  <div class="note">
+    <span class="tag">読み取り</span>
+    <p>男性で賃金が上がり女性でそうならないのは、<strong>補完的な仕事に移りやすいか、代替的な仕事に残るか</strong>の違いと解釈できる。前回学んだように、既婚女性は短時間・非正規で働くことが多く、外国人労働者と<strong>代替的</strong>になりやすい。そして賃金が下がれば、労働市場から退出する（前期の消費余暇モデル）。</p>
+  </div>
+
+  <h3>相対的に生産性の低い企業が温存されるのか</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Lewis（2011, <i>QJE</i>）</strong>は、米国のデータを用いて、外国人労働者を雇用している企業では<strong>高技能を必要としない技術</strong>が採用されていることを示している。</li>
+      <li>日本のデータでも、外国人労働者比率が高い企業ほど<strong>学歴間の賃金格差が小さい</strong> ＝ 技能が低い労働者に対する需要が多く、その賃金が高くなる。</li>
+    </ul>
+  </div>
+  <div class="callout">
+    <p>外国人労働者を受け入れると、<strong>従来型の技術が温存される</strong>可能性が高い。これは短期的には低技能の労働者にとって良いことだが、長期的には<strong>産業の高度化や生産性の向上を遅らせる</strong>かもしれない。シミュレーターの「技術選択（需要増）」は、まさにこの状況を表している。</p>
+  </div>
+
+  <h3>より最近の外国での議論</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>研究</th><th>主な結果</th></tr></thead>
+      <tbody>
+        <tr><td class="lead">Borjas（2013）</td><td class="left">米国では、不法移民も含めて、外国人労働者が <strong>GDP を11％拡大</strong>させている。ただし、そのうち <strong>97.8％は賃金や社会保障給付として外国人が享受</strong>している。</td></tr>
+        <tr><td class="lead">Kerr and Kerr（2011）</td><td class="left">既存研究のメタアナリシス。外国人労働者の流入が雇用に与える影響は、<strong>正負ともに有意ではない</strong>。</td></tr>
+        <tr><td class="lead">Jahn（2011）</td><td class="left">なぜ影響がないのか。外国人労働者は代替的ではなく、<strong>自国民労働者が管理職として働ける</strong>など補完的だから。</td></tr>
+        <tr><td class="lead">Ottaviano and Peri（2012）</td><td class="left">アメリカへの移民増加は、<strong>既存の外国人労働者とは代替的</strong>だが、<strong>アメリカ人の賃金率を引き上げる</strong>。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <span class="tag">つながり</span>
+    <p>Borjas（2013）の数字は、需給モデルの余剰の表と対応させて読むことができる。GDP は大きく増えるが、増えた分のほとんどは移民自身の所得（表の <strong>E</strong>）であり、受け入れ国の人々が得る純便益（<strong>C</strong>）は小さい。Ottaviano and Peri（2012）は、<strong>新しく来た移民と最も競合するのは、先に来ていた移民</strong>であることを示している。</p>
+  </div>
+</section>
+
+<!-- CONCERN -->
+<section id="concern">
+  <h2 class="section-title"><span class="step-badge s-teal">懸念と外部性</span>懸念の払拭と外部性の内部化</h2>
+
+  <h3>今後の課題：日本で単純労働者を受け入れる</h3>
+  <div class="card">
+    <ul>
+      <li><strong>技能習得を決める要因</strong>は何か。</li>
+      <li><strong>日本語能力と技能習得の関係</strong>
+        <ul>
+          <li>日本語能力試験は、大学などで学ぶための日本語能力を確認するもの。</li>
+          <li>働く上で必要な日本語は、<strong>産業や職種により異なる</strong>。</li>
+          <li>職種別に、日本語の能力としてどの水準が求められるのかを<strong>具体的に検証すべき</strong>ではないか。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3>外国人は犯罪率が高いのか</h3>
+  <p>多くの人が抱く懸念の一つに治安がある。しかし、<strong>所得をコントロールすると相関関係が消える疑似相関</strong>との指摘がある。</p>
+  <div class="split">
+    <div class="card">
+      <h4>Bianchi, Buonanno and Pinotti（2012, <i>JEEA</i>）</h4>
+      <p style="font-size:14px;">イタリアでは、移民人口が多い県ほど財産犯や犯罪全体の発生率が高いという<strong>正の相関</strong>がある。しかし移民は仕事のある都市部に集まりやすく、都市部はもともと犯罪も多い。<strong>操作変数推定</strong>では、移民が増やすのは<strong>強盗（robbery）だけ</strong>で、ほかの犯罪類型には影響がないという結果。</p>
+    </div>
+    <div class="card">
+      <h4>Bell, Fasani and Machin（2013, <i>REStat</i>）</h4>
+      <p style="font-size:14px;">英国で起きた性質の異なる2つの大規模な移民流入を比較。<strong>庇護申請者</strong>（働くことが制限される）の波は、小さいながら有意な財産犯の増加をもたらした。一方、<strong>EU 拡大後の労働移民</strong>の波では、そうした影響は見られなかった。「犯罪を減らしたいなら、むしろ<strong>合法的に働ける機会</strong>を与えるべき」という含意。</p>
+    </div>
+  </div>
+  <div class="note">
+    <span class="tag">ポイント</span>
+    <p>「移民が多い地域で犯罪が多い」という<strong>相関</strong>から、「移民が犯罪を増やす」という<strong>因果</strong>を導くことはできない。両方に影響する第3の要因（都市であること、所得水準）があるからである。前回の「三世代同居率と女性就業率」と同じ注意が必要である。</p>
+  </div>
+
+  <h3>生活面の懸念をどう払拭するか</h3>
+  <p>日本で生活していく上で、コミュニケーションや生活文化の面で、周囲に悪影響があるのではないか、という懸念もある。これに対しては、次のような対策が考えられる。</p>
+  <div class="card">
+    <ul>
+      <li><strong>事前に日本語の条件を課す</strong>
+        <ul>
+          <li>→ 周囲とのコミュニケーションが可能に</li>
+          <li>→ 外国人労働者の技能習得が容易に</li>
+          <li>→ <strong>ただし日本人労働者との代替性が上がる</strong></li>
+        </ul>
+      </li>
+      <li><strong>日本における生活ルールを教育</strong>
+        <ul>
+          <li>→ 生活面での負の外部性を軽減</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="callout step2">
+    <p>問題は、<strong>受け入れを求める企業は、外部性を自分では負担しない</strong>ことである。生活ルールの教育には費用がかかるが、その便益（地域でのトラブルが減る）は主に<strong>地域住民や自治体</strong>が受け取る。そのため企業には<strong>適切な教育をするインセンティブが低い</strong>。 → <strong>どうすれば内部化できるか？</strong></p>
+  </div>
+
+  <h3>シミュレーター ― 外部性を内部化する</h3>
+  <p>企業が外国人を1人雇うと、地域に<strong>外部費用 $e$</strong> が発生するとしよう。企業が<strong>1人あたり $k$ の費用</strong>をかけて生活ルールや日本語の教育を行えば、外部費用はなくなる。政策を切り替えて、企業の行動と社会全体の余剰がどう変わるか確かめよう。</p>
+
+  <div class="graph-wrap">
+    <div class="graph-title">外部性の内部化 ― 企業は教育をするか、何人雇うか</div>
+    <div style="margin-bottom:10px;">
+      <div class="seg" id="exSeg" style="flex-wrap:wrap;">
+        <button type="button" data-k="none" class="on">政策なし</button>
+        <button type="button" data-k="train">教育を義務づけ</button>
+        <button type="button" data-k="levy">課徴金 $t=e$</button>
+      </div>
+    </div>
+    <canvas id="exCanvas" aria-label="横軸に外国人労働者の雇用量、縦軸に金額をとり、限界生産物価値、賃金、外部費用を含む社会的費用を示す図"></canvas>
+    <div class="controls">
+      <div class="control">
+        <label for="exE">1人あたりの外部費用 $e$：<span class="readout" id="exEOut">2.0</span></label>
+        <input type="range" id="exE" min="0" max="4" step="0.25" value="2">
+      </div>
+      <div class="control">
+        <label for="exK">1人あたりの教育費用 $k$：<span class="readout" id="exKOut">1.0</span></label>
+        <input type="range" id="exK" min="0" max="4" step="0.25" value="1">
+      </div>
+    </div>
+    <div class="legend">
+      <span class="item"><span class="sw" style="background:#b45309"></span>限界生産物価値 $VMP$</span>
+      <span class="item"><span class="sw" style="background:#1e3a8a"></span>賃金 $w$</span>
+      <span class="item"><span class="sw" style="background:#b91c1c"></span>教育しないときの社会的費用 $w+e$</span>
+      <span class="item"><span class="sw" style="background:#047857"></span>教育するときの社会的費用 $w+k$</span>
+      <span class="item"><span class="box" style="background:rgba(185,28,28,.16)"></span>雇いすぎによる損失</span>
+    </div>
+    <div class="verdict" id="exVerdict"></div>
+  </div>
+  <p class="src">注：$VMP = 10 - 0.5F$、賃金 $w = 4$ で一定という説明のための仮の設定。</p>
+</section>
+
+<!-- FUTURE -->
+<section id="future">
+  <h2 class="section-title"><span class="step-badge s-amber">これから</span>供給側の視点と日本人労働者への影響</h2>
+
+  <h3>労働供給側の議論も必要</h3>
+  <p>ここまでは、<strong>日本が外国人労働者を受け入れるのか</strong>という<strong>需要側</strong>の議論をしてきた。しかし、<strong>外国人労働者が日本を働く場として選ぶのか</strong>という問いも重要である。</p>
+  <div class="card">
+    <ul>
+      <li>「<strong>この給料じゃ生活できない！</strong>」という理由で、アジアの優秀人材はもう日本を選ばない可能性がある（円安、母国の賃金上昇、他の受け入れ国との競争）。</li>
+      <li><strong>文化的・宗教的な面</strong>で生活がしやすい環境であるか。</li>
+      <li><strong>技能を身につけることで帰国後に役に立つ</strong>のか。</li>
+    </ul>
+  </div>
+  <div class="discuss">
+    <div class="discuss-head"><span class="discuss-tag">話し合ってみよう</span></div>
+    <div class="discuss-q">あなたが海外で数年間働くとしたら、どの国を選ぶだろうか。何を基準にして選ぶだろうか。</div>
+    <div class="discuss-hint">
+      <details>
+        <summary>考えるヒント</summary>
+        <div class="body">
+          <ul>
+            <li><strong>賃金</strong>：名目の金額だけでなく、為替レートと物価、母国への仕送りの価値。</li>
+            <li><strong>将来の収益</strong>：その国で身につけた技能や言語が、帰国後や次の国で評価されるか（人的資本投資としての出稼ぎ）。</li>
+            <li><strong>在留の安定性</strong>：長く働けるか、家族を呼べるか、転職できるか。</li>
+            <li><strong>生活のしやすさ</strong>：言語、宗教、食事、同じ国の出身者のコミュニティ、差別の少なさ。</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <h3>日本人労働者への影響</h3>
+  <div class="card">
+    <ul>
+      <li>賃金が下がらないという結果は、<strong>地域や産業間で労働移動が起こるから</strong>でもある。
+        <ul>
+          <li>世代や経験別に、他産業や他職種への移動や技能習得に関する<strong>ハードルの高さが異なる</strong>。</li>
+          <li>実質的に<strong>移動費用</strong>を払うことから、日本人労働者からの反対意見は根強いことが考えられる。</li>
+        </ul>
+      </li>
+      <li>しかし、<strong>外国人労働者を受け入れなくても、または少数しか受け入れなくても、労働環境は変化する</strong>。</li>
+    </ul>
+  </div>
+
+  <h3>受け入れないとき、何が起こるのか ― ロボットと雇用</h3>
+  <p>外国人労働者を受け入れない、または少数しか受け入れないときには、<strong>コンピュータや機械、ロボットの導入</strong>が進む。では、人間の仕事は失われるのか？</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>研究</th><th>対象</th><th>主な結果</th></tr></thead>
+      <tbody>
+        <tr><td class="lead">Acemoglu and Restrepo（2020, <i>JPE</i>）</td><td>米国</td><td class="left">産業用ロボットは労働者を<strong>代替する</strong>（雇用と賃金を減らす）。</td></tr>
+        <tr><td class="lead">Dauth et al.（2021, <i>JEEA</i>）</td><td>ドイツ</td><td class="left">産業用ロボットによる雇用代替は<strong>観察されない</strong> → <strong>同じ企業内での配置転換</strong>で対処される。</td></tr>
+        <tr><td class="lead">Adachi, Kawaguchi and Saito（2024, <i>JOLE</i>）</td><td>日本</td><td class="left">ロボット価格の低下は<strong>ロボット台数と雇用の両方を増やす</strong>。その経路は、導入産業の<strong>生産性と生産規模の拡大</strong>。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <p>日本では、少なくとも短期的にはドイツと同じことが起こる可能性が高いと考えられていた。その背景には<strong>長期雇用慣行と雇用保障</strong>、そして<strong>配置転換や転勤</strong>によって企業内で人を動かす仕組みがある。外国人労働者を受け入れるか、ロボットを入れるか ― どちらを選んでも、<strong>日本人労働者の働き方は変わる</strong>。これが次回の「働き方の未来」につながる。</p>
+  </div>
+</section>
+
+<!-- TASK -->
+<section id="task">
+  <h2 class="section-title"><span class="step-badge s-teal">検討課題</span>理論モデルを考えてみよう</h2>
+
+  <div class="steps3">
+    <div class="stepbox">
+      <div class="sn">1</div>
+      <div class="st">一人で考える</div>
+      <div class="sd">まず自分の考えを回答欄に書き出す。図を描きながら考えるとよい。</div>
+    </div>
+    <div class="stepbox">
+      <div class="sn">2</div>
+      <div class="st">グループで比べる</div>
+      <div class="sd">誰が得をし、誰が損をするのか、立場によって評価がどう違うかを話し合う。</div>
+    </div>
+    <div class="stepbox">
+      <div class="sn">3</div>
+      <div class="st">理論とつなげる</div>
+      <div class="sd">需給モデル、代替と補完、技術選択、外部性のどれで説明できるかを考える。</div>
+    </div>
+  </div>
+
+  <h3>検討課題1 ― 余剰の変化と「損をする人」</h3>
+  <div class="card">
+    <p style="margin-top:0;">基本的な需給モデルの図で、受け入れの前後の<strong>企業・既存労働者・移民労働者・総余剰</strong>を A〜E の記号で表し、その変化をまとめよう（<a class="inline-link" href="#model">04 需給モデル</a>の表）。</p>
+    <p>総余剰が増えるのに、受け入れに反対する人がいるのはなぜか。<strong>損をする人に対して、何ができるか</strong>も考えよう。</p>
+  </div>
+  <div class="answer-box">
+    <div class="answer-head"><span class="answer-tag">あなたの考え</span><span class="answer-id">TASK 1</span></div>
+    <div class="answer-q">余剰の変化をまとめ、損をする人がいる理由と、その人たちへの対策を書いてみよう。</div>
+    <textarea class="answer-input" data-qid="t1" placeholder="企業：&#10;既存労働者：&#10;移民労働者：&#10;総余剰：&#10;損をする人への対策："></textarea>
+    <span class="answer-save" data-for="t1">未保存</span>
+  </div>
+
+  <h3>検討課題2 ― 外部性をどう内部化するか</h3>
+  <div class="card">
+    <p style="margin-top:0;">受け入れを求める企業は、生活面での外部性を自分では負担しないため、適切な教育をするインセンティブが低い。<strong>どうすれば内部化できるか？</strong></p>
+  </div>
+  <div class="discuss-hint" style="margin:-4px 0 10px;">
+    <details>
+      <summary>考えるヒント</summary>
+      <div class="body">
+        <p><strong>規制</strong>：受け入れ企業に、日本語や生活ルールの教育・生活支援を義務づける（特定技能では、受け入れ機関に支援計画の作成・実施が求められ、登録支援機関に委託することもできる）。</p>
+        <p><strong>課徴金・負担金</strong>：外国人1人あたりの負担金を企業から徴収し、自治体の日本語教室や相談窓口の費用にあてる。上のシミュレーターの「課徴金」に対応する。</p>
+        <p><strong>責任の明確化</strong>：トラブルが起きたときに受け入れ企業が費用を負担するルールにすれば、企業は事前に教育をする動機を持つ。</p>
+        <p>それぞれの方法の<strong>長所と短所</strong>（企業の負担が大きすぎると受け入れが減りすぎる、など）も考えてみよう。</p>
+      </div>
+    </details>
+  </div>
+  <div class="answer-box">
+    <div class="answer-head"><span class="answer-tag">あなたの考え</span><span class="answer-id">TASK 2</span></div>
+    <div class="answer-q">外部性を内部化する方法を挙げ、それぞれの長所と短所を書いてみよう。</div>
+    <textarea class="answer-input" data-qid="t2" placeholder="方法1：&#10;　長所：&#10;　短所：&#10;方法2：&#10;　長所：&#10;　短所："></textarea>
+    <span class="answer-save" data-for="t2">未保存</span>
+  </div>
+
+  <h3>検討課題3 ― 日本は選ばれる国であり続けられるか</h3>
+  <div class="card">
+    <p style="margin-top:0;">外国人労働者が日本を働く場として選ぶためには、<strong>何が必要</strong>だろうか。賃金、在留制度、生活環境、帰国後のキャリアなど、<strong>供給側の視点</strong>から考えよう。</p>
+  </div>
+  <div class="answer-box">
+    <div class="answer-head"><span class="answer-tag">あなたの考え</span><span class="answer-id">TASK 3</span></div>
+    <div class="answer-q">日本が選ばれるために必要なことを、企業ができること、政府・自治体ができること、地域の住民ができることに分けて書いてみよう。</div>
+    <textarea class="answer-input" data-qid="t3" placeholder="企業ができること：&#10;政府・自治体ができること：&#10;地域の住民ができること："></textarea>
+    <span class="answer-save" data-for="t3">未保存</span>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <h2 class="section-title"><span class="step-badge summary">SUMMARY</span>まとめと次回までの課題</h2>
+
+  <h3>本日の流れ</h3>
+  <ul>
+    <li><strong>現状</strong>：外国人労働者は<strong>257.1万人</strong>（2025年10月末）で、10年で約2.8倍。増加をけん引するのは特定技能を含む<strong>専門的・技術的分野</strong>。国籍はベトナム・中国・フィリピンが多く、<strong>製造業や大都市圏・製造業集積地</strong>に集中している。</li>
+    <li><strong>制度</strong>：2019年に<strong>特定技能</strong>が導入され、人手不足の19分野で外国人を労働者として受け入れるようになった。2号は在留期間の上限がなく、家族の帯同も可能。</li>
+    <li><strong>需給モデル</strong>：同質な労働者が入ると賃金は下がり、<strong>総余剰は C＋E 増える</strong>が、<strong>既存労働者は B だけ損をする</strong>。</li>
+    <li><strong>拡張</strong>：<strong>自国民の移動</strong>や<strong>技術選択の変化（需要増）</strong>があれば、賃金は下がらないこともある。外国人と日本人が<strong>代替的か補完的か</strong>で影響は逆になる。</li>
+    <li><strong>実証研究</strong>：日本では、高卒男性の賃金は上がりうる一方、既婚女性は労働市場から退出しやすい。外国人の雇用は<strong>従来型の技術を温存</strong>する可能性がある。海外のメタ分析では雇用への影響は有意でない。</li>
+    <li><strong>懸念と外部性</strong>：犯罪率との相関は<strong>疑似相関</strong>の可能性がある。生活面の負の外部性は、企業に教育の動機がないため、<strong>内部化の仕組み</strong>が必要になる。</li>
+    <li><strong>これから</strong>：日本が<strong>選ばれる国</strong>であるかという供給側の視点も重要。受け入れなくても<strong>ロボットの導入</strong>などで労働環境は変わる。</li>
+  </ul>
+
+  <div class="callout">
+    <p>今回の通奏低音は、<strong>「外国人労働者の影響は、日本人と企業がどう反応するかで決まる」</strong>ということ。供給曲線が1本動くだけの単純なモデルでは賃金は必ず下がるが、現実には日本人は<strong>移動し、進学し</strong>、企業は<strong>技術を選び直す</strong>。だからこそ、平均的な賃金が下がらなくても、<strong>移動費用を負担する人や、代替的な仕事に残る人</strong>への目配りが欠かせない。</p>
+  </div>
+
+  <h3>主要な参考文献</h3>
+  <ul style="font-size:14px;">
+    <li>中村二朗（2009）「外国人労働者の受け入れは何をもたらすのか」『日本労働研究雑誌』2009年6月号</li>
+    <li>中村二朗・内藤久裕・神林龍・川口大司・町北朋洋（2009）『日本の外国人労働者 ― 経済学からの検討』日本経済新聞出版社</li>
+    <li>樋口美雄（1988）「外国人労働者問題の経済学的側面」『日本労働協会雑誌』No.348</li>
+    <li>Bauer, T. and K. F. Zimmermann (1999) "Assessment of possible migration pressure and its labour market impact following EU enlargement to central and eastern Europe," IZA Research Report</li>
+    <li>Borjas, G. J. (1994) "The economics of immigration," <i>Journal of Economic Literature</i>, 32(4)</li>
+  </ul>
+
+  <div class="note">
+    <span class="tag">次回までの課題</span>
+    <p>次回は、<strong>働き方の未来</strong>について考える。</p>
+    <p><strong>事前学習：</strong></p>
+    <ul style="margin:6px 0;">
+      <li>日本の人口がこれからどのように変わるのかについての<strong>公的な予測</strong>を調べてみよう（例：国立社会保障・人口問題研究所「日本の将来推計人口」）。</li>
+      <li>これまで<strong>技術進歩によってどのような仕事が失われたのか</strong>、そしてこれから<strong>どのような仕事が失われる可能性があるのか</strong>を考えておこう（例：フォードT型（1907年・アメリカ）の登場で、馬車に関わる仕事はどうなったか）。</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <span class="tag">メモ</span>
+    <p>検討課題の回答欄に記入した内容は、ブラウザ内（localStorage）に自動で保存されます。同じ端末・同じブラウザでこのページを再度開けば、続きから読み直せます。</p>
+  </div>
+</section>
+
+<div class="footer">
+  労働経済論 後期第4回「外国人労働者」補助教材<br>
+  日本大学 経済学部 / 安藤至大
+</div>
+
+</div>
+
+<script>
+/* =========================================
+   前回の穴埋め・余剰の表：答えの表示／非表示
+   ========================================= */
+function bindToggle(btnId, cardId, showLabel, hideLabel) {
+  const btn = document.getElementById(btnId);
+  const card = document.getElementById(cardId);
+  btn.addEventListener("click", () => {
+    const hidden = card.classList.toggle("fills-hidden");
+    btn.textContent = hidden ? showLabel : hideLabel;
+  });
+}
+bindToggle("fillToggle", "fillCard", "答えを表示する", "答えを隠す");
+bindToggle("surplusToggle", "surplusCard", "答えを表示する", "答えを隠す");
+
+/* =========================================
+   静的SVGグラフ（データから生成）
+   ========================================= */
+const SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent, text) {
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const fmt = n => n.toLocaleString("ja-JP");
+
+/* 在留資格別外国人労働者数の推移（千人） */
+(function () {
+  const g = document.getElementById("statusBars");
+  const CATS = ["身分に基づく在留資格", "資格外活動", "技能実習", "特定活動", "専門的・技術的分野"];
+  const COLS = ["#0e7490", "#d6a35c", "#b45309", "#cbd5e1", "#1e3a8a"];
+  // [年, 身分, 資格外, 技能実習, 特定活動, 専門的・技術的, 総数]
+  const D = [
+    [2008, 224, 83, 0, 95, 85, 486], [2009, 253, 97, 0, 112, 100, 563], [2010, 297, 108, 11, 123, 111, 650],
+    [2011, 320, 110, 130, 6, 121, 686], [2012, 309, 108, 134, 7, 124, 682], [2013, 319, 122, 137, 8, 133, 718],
+    [2014, 339, 147, 145, 9, 147, 788], [2015, 367, 192, 168, 13, 167, 908], [2016, 413, 240, 211, 19, 201, 1084],
+    [2017, 459, 297, 258, 26, 238, 1279], [2018, 496, 344, 308, 36, 277, 1460], [2019, 532, 373, 384, 41, 329, 1659],
+    [2020, 546, 370, 402, 46, 360, 1724], [2021, 580, 335, 352, 66, 395, 1727], [2022, 595, 331, 343, 73, 480, 1823],
+    [2023, 616, 353, 413, 72, 596, 2049], [2024, 629, 398, 471, 86, 719, 2303], [2025, 646, 449, 499, 111, 866, 2571]
+  ];
+  const btns = document.querySelectorAll("#stSeg button");
+  const base = 280, top = 30;
+  const X = i => 78 + i * 33;
+  function draw(sel) {
+    while (g.firstChild) g.removeChild(g.firstChild);
+    const single = sel !== "all";
+    const vmax = single ? (+sel === 4 ? 1000 : 700) : 2800;
+    const step = single ? 100 : 500;
+    const Y = v => base - (base - top) * v / vmax;
+    for (let t = 0; t <= vmax; t += step) {
+      el("line", { x1: 56, y1: Y(t), x2: 670, y2: Y(t), stroke: t ? "#eceae3" : "#9ca3af", "stroke-width": t ? 1 : 1.2 }, g);
+      el("text", { x: 50, y: Y(t) + 4, "font-size": 10.5, "font-family": "JetBrains Mono, monospace", fill: "#6b7280", "text-anchor": "end" }, g, fmt(t));
+    }
+    el("text", { x: 8, y: 18, "font-size": 11, fill: "#6b7280" }, g, "（千人）");
+    D.forEach((d, i) => {
+      const x = X(i) - 11;
+      el("text", { x: X(i), y: 298, "font-size": 10, "font-family": "JetBrains Mono, monospace", fill: "#6b7280", "text-anchor": "middle" }, g, i % 2 === 0 || i === D.length - 1 ? d[0] : "");
+      const grp = el("g", {}, g);
+      el("title", {}, grp, `${d[0]}年　総数 ${fmt(d[6])}千人\n` + CATS.map((c, j) => `${c}：${fmt(d[j + 1])}`).reverse().join("\n"));
+      if (single) {
+        const j = +sel, v = d[j + 1];
+        el("rect", { x, y: Y(v), width: 22, height: base - Y(v), rx: 2, fill: COLS[j] }, grp);
+        el("text", { x: X(i), y: Y(v) - 5, "font-size": 9.5, "font-family": "JetBrains Mono, monospace", fill: "#1f2937", "text-anchor": "middle" }, g, v);
+      } else {
+        let acc = 0;
+        for (let j = 0; j < 5; j++) {
+          const v = d[j + 1];
+          if (v > 0) el("rect", { x, y: Y(acc + v), width: 22, height: Y(acc) - Y(acc + v), fill: COLS[j] }, grp);
+          acc += v;
+        }
+        el("text", { x: X(i), y: Y(d[6]) - 5, "font-size": 9.5, "font-family": "JetBrains Mono, monospace", fill: "#1f2937", "text-anchor": "middle", "font-weight": 700 }, g, fmt(d[6]));
+      }
+    });
+    if (single) el("text", { x: 70, y: 46, "font-size": 13, fill: COLS[+sel] === "#cbd5e1" ? "#6b7280" : COLS[+sel], "font-weight": 700 }, g, CATS[+sel]);
+    btns.forEach(b => b.classList.toggle("on", b.dataset.k === sel));
+  }
+  btns.forEach(b => b.addEventListener("click", () => draw(b.dataset.k)));
+  draw("all");
+})();
+
+/* 横棒グラフ（国籍別・産業別） */
+function hBars(gid, data, opt) {
+  const g = document.getElementById(gid);
+  const x0 = opt.x0, k = opt.w / opt.max, rh = opt.rh;
+  opt.ticks.forEach(t => {
+    el("line", { x1: x0 + t * k, y1: 6, x2: x0 + t * k, y2: 10 + data.length * rh, stroke: "#eceae3" }, g);
+    el("text", { x: x0 + t * k, y: 26 + data.length * rh, "font-size": 10.5, "font-family": "JetBrains Mono, monospace", fill: "#6b7280", "text-anchor": "middle" }, g, t ? (t / 10000) + "万" : "0");
+  });
+  data.forEach((d, i) => {
+    const y = 10 + i * rh;
+    const hl = opt.hl && opt.hl.includes(d[0]);
+    el("text", { x: x0 - 10, y: y + rh / 2 + 4, "font-size": 12.5, fill: "#1f2937", "text-anchor": "end", "font-weight": 700 }, g, d[0]);
+    const r = el("rect", { x: x0, y: y + 4, width: d[1] * k, height: rh - 9, rx: 3, fill: d[3] || (hl ? "#b45309" : "#0e7490") }, g);
+    el("title", {}, r, `${d[0]}：${fmt(d[1])}人（${d[2].toFixed(1)}％）`);
+    el("text", { x: x0 + d[1] * k + 6, y: y + rh / 2 + 4, "font-size": 11, "font-family": "JetBrains Mono, monospace", fill: "#1f2937" }, g, `${fmt(d[1])}（${d[2].toFixed(1)}％）`);
+  });
+}
+hBars("natBars", [
+  ["ベトナム", 605906, 23.6], ["中国", 431949, 16.8], ["フィリピン", 260869, 10.1], ["ネパール", 235874, 9.2],
+  ["インドネシア", 228118, 8.9], ["ミャンマー", 163311, 6.4], ["ブラジル", 134645, 5.2], ["韓国", 80193, 3.1],
+  ["スリランカ", 50427, 2.0], ["タイ", 41468, 1.6], ["インド", 31636, 1.2], ["ペルー", 31448, 1.2],
+  ["G7等", 86520, 3.4, "#94a3b8"], ["その他", 188673, 7.3, "#cbd5e1"]
+], { x0: 110, w: 400, max: 606000, rh: 26, ticks: [0, 200000, 400000, 600000] });
+hBars("indBars", [
+  ["製造業", 635075, 24.7], ["サービス業（他に分類されないもの）", 391946, 15.2], ["卸売業、小売業", 340687, 13.3],
+  ["宿泊業、飲食サービス業", 319999, 12.4], ["建設業", 206468, 8.0], ["医療、福祉", 146105, 5.7],
+  ["情報通信業", 97924, 3.8], ["教育、学習支援業", 83225, 3.2], ["その他", 349608, 13.6, "#cbd5e1"]
+], { x0: 230, w: 300, max: 640000, rh: 28, ticks: [0, 200000, 400000, 600000], hl: ["製造業"] });
+
+/* =========================================
+   Canvas 共通プロッタ（DPR対応）
+   ========================================= */
+function makePlot(canvas, o) {
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = canvas.clientWidth, cssH = canvas.clientHeight;
+  canvas.width = cssW * dpr; canvas.height = cssH * dpr;
+  const ctx = canvas.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const pad = { l: 52, r: 56, t: 18, b: 44 };
+  const W = cssW - pad.l - pad.r, H = cssH - pad.t - pad.b;
+  const xToPx = x => pad.l + (x - o.xmin) / (o.xmax - o.xmin) * W;
+  const yToPx = y => pad.t + (1 - (y - o.ymin) / (o.ymax - o.ymin)) * H;
+  ctx.clearRect(0, 0, cssW, cssH);
+  ctx.font = '11px "JetBrains Mono", monospace';
+  ctx.strokeStyle = "#eceae3"; ctx.lineWidth = 1; ctx.fillStyle = "#6b7280";
+  o.yticks.forEach(t => {
+    const y = yToPx(t);
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + W, y); ctx.stroke();
+    ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(t, pad.l - 6, y);
+  });
+  o.xticks.forEach(t => {
+    const x = xToPx(t);
+    ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, pad.t + H); ctx.stroke();
+    ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.fillText(t, x, pad.t + H + 6);
+  });
+  ctx.strokeStyle = "#6b7280"; ctx.lineWidth = 1.2;
+  ctx.beginPath(); ctx.moveTo(pad.l, pad.t + H); ctx.lineTo(pad.l + W, pad.t + H); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + H); ctx.stroke();
+  ctx.font = '12px "Noto Sans JP", sans-serif'; ctx.fillStyle = "#4b5563";
+  ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText(o.xlabel, pad.l + W, pad.t + H + 40);
+  ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(o.ylabel, pad.l + 6, pad.t);
+  // 描画領域でクリップ
+  ctx.save(); ctx.beginPath(); ctx.rect(pad.l, pad.t - 2, W + 2, H + 2); ctx.clip();
+  return { ctx, pad, W, H, xToPx, yToPx };
+}
+function endPlot(P) { P.ctx.restore(); }
+function drawPoly(P, pts, col, lw, dash) {
+  const { ctx } = P;
+  ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = lw; if (dash) ctx.setLineDash(dash);
+  ctx.beginPath();
+  pts.forEach(([x, y], i) => i ? ctx.lineTo(P.xToPx(x), P.yToPx(y)) : ctx.moveTo(P.xToPx(x), P.yToPx(y)));
+  ctx.stroke(); ctx.restore();
+}
+function fillPoly(P, pts, col) {
+  const { ctx } = P;
+  ctx.beginPath();
+  pts.forEach(([x, y], i) => i ? ctx.lineTo(P.xToPx(x), P.yToPx(y)) : ctx.moveTo(P.xToPx(x), P.yToPx(y)));
+  ctx.closePath(); ctx.fillStyle = col; ctx.fill();
+}
+function hLine(P, y, x1, col, dash) {
+  drawPoly(P, [[0, y], [x1, y]], col, 1.1, dash || [4, 3]);
+}
+function vLine(P, x, y1, col, dash) {
+  drawPoly(P, [[x, 0], [x, y1]], col, 1.1, dash || [4, 3]);
+}
+function dot(P, x, y, col, r) {
+  const { ctx } = P;
+  ctx.beginPath(); ctx.arc(P.xToPx(x), P.yToPx(y), r || 5, 0, Math.PI * 2);
+  ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#fff"; ctx.stroke();
+}
+function label(P, x, y, txt, col, align, dx, dy) {
+  const { ctx } = P;
+  ctx.font = '700 12px "JetBrains Mono", "Noto Sans JP", monospace';
+  ctx.fillStyle = col; ctx.textAlign = align || "left"; ctx.textBaseline = "middle";
+  ctx.fillText(txt, P.xToPx(x) + (dx || 0), P.yToPx(y) + (dy || 0));
+}
+
+/* =========================================
+   外国人労働者の受け入れと労働市場
+   ========================================= */
+(function () {
+  const cv = document.getElementById("lmCanvas");
+  const sF = document.getElementById("lmF"), sM = document.getElementById("lmM"), sD = document.getElementById("lmD");
+  const btns = document.querySelectorAll("#lmSeg button");
+  const PRESET = { base: [4, 0, 0], move: [4, 4, 0], tech: [4, 0, 2] };
+  const XM = 24, YM = 14;
+  // 均衡：需要 h = 2(a - w)、日本人 hJ = max(0, 2(w - c))、外国人は賃金によらず F
+  function eq(F, m, d) {
+    const a = 10 + d, c = 2 + m / 2;
+    let w = (2 * a + 2 * c - F) / 4;
+    if (w < c) w = a - F / 2;
+    const hJ = Math.max(0, 2 * (w - c)), h = hJ + F;
+    const firm = 0.5 * h * (a - w), nat = 0.5 * hJ * Math.max(0, w - c), imm = F * w;
+    return { a, c, w, hJ, h, firm, nat, imm, tot: firm + nat + imm };
+  }
+  const E0 = eq(0, 0, 0);
+  function draw() {
+    const F = +sF.value, m = +sM.value, d = +sD.value;
+    document.getElementById("lmFOut").textContent = F;
+    document.getElementById("lmMOut").textContent = m;
+    document.getElementById("lmDOut").textContent = d;
+    const E = eq(F, m, d);
+    const P = makePlot(cv, { xmin: 0, xmax: XM, ymin: 0, ymax: YM, xticks: [0, 4, 8, 12, 16, 20, 24], yticks: [0, 2, 4, 6, 8, 10, 12, 14],
+      xlabel: "労働量 h", ylabel: "賃金 w" });
+    // 余剰（受入後）
+    fillPoly(P, [[0, E.w], [E.h, E.w], [0, E.a]], "rgba(180,83,9,.18)");
+    if (E.hJ > 0) fillPoly(P, [[0, E.c], [E.hJ, E.w], [0, E.w]], "rgba(30,58,138,.18)");
+    if (F > 0) fillPoly(P, E.hJ > 0 ? [[0, 0], [F, 0], [F, E.c], [F + E.hJ, E.w], [E.hJ, E.w], [0, E.c]] : [[0, 0], [F, 0], [F, E.w], [0, E.w]], "rgba(14,116,144,.22)");
+    // 受入前の曲線（点線）
+    if (d > 0) drawPoly(P, [[0, 10], [20, 0]], "#b45309", 1.4, [5, 4]);
+    if (m > 0) drawPoly(P, [[0, 2], [XM, 2 + XM / 2]], "#1e3a8a", 1.4, [5, 4]);
+    // 現在の曲線
+    drawPoly(P, [[0, E.a], [2 * E.a, 0]], "#b45309", 2.6);
+    drawPoly(P, [[0, 0], [0, E.c], [XM, E.c + XM / 2]], "#1e3a8a", 3);
+    if (F > 0) drawPoly(P, [[F, 0], [F, E.c], [F + 2 * (YM - E.c), YM]], "#0e7490", 2.4);
+    // 均衡
+    hLine(P, E0.w, E0.h, "#9ca3af"); vLine(P, E0.h, E0.w, "#9ca3af");
+    hLine(P, E.w, E.h, "#1f2937"); vLine(P, E.h, E.w, "#1f2937");
+    dot(P, E0.h, E0.w, "#9ca3af", 4.5);
+    dot(P, E.h, E.w, "#1f2937", 5.5);
+    endPlot(P);
+    label(P, 0, E0.w, "w₀", "#6b7280", "left", 4, -8);
+    if (Math.abs(E.w - E0.w) > 0.05) label(P, 0, E.w, "w₁", "#1f2937", "left", 4, E.w < E0.w ? 9 : -8);
+    const hEnd = Math.min(XM, 2 * (YM - E.c));
+    label(P, hEnd, E.c + hEnd / 2, m > 0 ? "S′J" : "SJ", "#1e3a8a", "right", -8, -4);
+    if (F > 0) { const h2 = Math.min(XM - F, 2 * (YM - E.c) - 0.6); label(P, F + h2, E.c + h2 / 2, m > 0 ? "S′J+F" : "SJ+F", "#0e7490", "left", 4, 0); }
+    label(P, Math.min(2 * E.a, XM), Math.max(0, E.a - XM / 2), "D", "#b45309", "left", 4, -10);
+    // 表
+    const rows = [
+      ["賃金", E0.w, E.w], ["日本人の雇用", E0.hJ, E.hJ], ["外国人の雇用", 0, F],
+      ["企業の余剰", E0.firm, E.firm], ["日本人労働者の余剰", E0.nat, E.nat], ["外国人労働者の余剰", 0, E.imm], ["総余剰", E0.tot, E.tot]
+    ];
+    const f2 = v => (Math.round(v * 100) / 100).toFixed(2).replace(/\.?0+$/, "") || "0";
+    document.getElementById("lmTable").innerHTML =
+      `<thead><tr><th></th><th>受入前</th><th>受入後</th><th>変化</th></tr></thead><tbody>` +
+      rows.map(([n, b, a]) => {
+        const df = a - b, col = Math.abs(df) < 0.005 ? "#6b7280" : df > 0 ? "#047857" : "#b91c1c";
+        return `<tr><td class="lead">${n}</td><td>${f2(b)}</td><td>${f2(a)}</td><td style="color:${col};font-weight:700;">${Math.abs(df) < 0.005 ? "±0" : (df > 0 ? "+" : "−") + f2(Math.abs(df))}</td></tr>`;
+      }).join("") + `</tbody>`;
+    // 判定
+    const v = document.getElementById("lmVerdict");
+    const dw = E.w - E0.w;
+    let msg;
+    if (F === 0) { v.className = "verdict"; msg = "外国人労働者の数 $F$ を増やしてみよう。"; }
+    else if (dw < -0.05) {
+      v.className = "verdict bad";
+      msg = `<b class="bad">賃金が ${f2(-dw)} 低下</b>（${(-dw / E0.w * 100).toFixed(1)}％）。総余剰は ${f2(E.tot - E0.tot)} 増えるが、日本人労働者の余剰は ${f2(E0.nat - E.nat)} 減る。賃金の低下分は日本人労働者から企業へ移転している（表の B）。`;
+    } else {
+      v.className = "verdict good";
+      msg = `<b class="good">賃金はほとんど下がらない</b>（変化 ${dw >= 0 ? "+" : "−"}${f2(Math.abs(dw))}）。`;
+      if (m > 0) msg += `ただし日本人のうち ${m} だけが他地域・他産業へ移っており、<b>移動費用や移動先での賃金</b>はこの図には含まれていない。表の「日本人労働者の余剰」の減少は、この市場に残った人の分だけである。`;
+      if (d > 0) msg += `労働需要が ${d} だけ増えたのは、外国人を雇えることで<b>労働集約的な技術が選ばれた</b>ためである。短期的には日本人の雇用も守られるが、機械化や生産性向上が遅れる可能性がある。`;
+    }
+    v.innerHTML = msg;
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([v]).catch(() => {});
+  }
+  btns.forEach(b => b.addEventListener("click", () => {
+    const p = PRESET[b.dataset.k];
+    sF.value = p[0]; sM.value = p[1]; sD.value = p[2];
+    btns.forEach(x => x.classList.toggle("on", x === b));
+    draw();
+  }));
+  [sF, sM, sD].forEach(s => s.addEventListener("input", () => { btns.forEach(x => x.classList.remove("on")); draw(); }));
+  window.addEventListener("resize", draw);
+  draw();
+})();
+
+/* =========================================
+   外部性の内部化
+   ========================================= */
+(function () {
+  const cv = document.getElementById("exCanvas");
+  const sE = document.getElementById("exE"), sK = document.getElementById("exK");
+  const btns = document.querySelectorAll("#exSeg button");
+  let policy = "none";
+  const W = 4, VMP = F => 10 - 0.5 * F, Fof = c => Math.max(0, 2 * (10 - c)); // VMP = c となる雇用量
+  const SS = (F, c) => (6 - c) * F - 0.25 * F * F; // ∫(VMP - w - c)
+  function draw() {
+    const e = +sE.value, k = +sK.value;
+    document.getElementById("exEOut").textContent = e.toFixed(2).replace(/0$/, "");
+    document.getElementById("exKOut").textContent = k.toFixed(2).replace(/0$/, "");
+    // 企業の選択
+    let train, Ff, firmCost;
+    if (policy === "none") { train = false; firmCost = W; }
+    else if (policy === "train") { train = true; firmCost = W + k; }
+    else { train = k < e; firmCost = W + Math.min(e, k); }
+    Ff = Fof(firmCost);
+    const socialC = train ? k : e;          // 1人あたりの社会的な追加費用
+    const ss = SS(Ff, socialC);
+    const cStar = Math.min(e, k), Fstar = Fof(W + cStar), ssStar = SS(Fstar, cStar);
+    const loss = ssStar - ss;
+    // 図
+    const P = makePlot(cv, { xmin: 0, xmax: 14, ymin: 0, ymax: 11, xticks: [0, 2, 4, 6, 8, 10, 12, 14], yticks: [0, 2, 4, 6, 8, 10],
+      xlabel: "外国人労働者の雇用量 F", ylabel: "金額" });
+    const sc = W + socialC;
+    const Fs = Fof(sc);
+    if (Ff > Fs + 1e-9) fillPoly(P, [[Fs, sc], [Ff, sc], [Ff, VMP(Ff)]], "rgba(185,28,28,.16)");
+    drawPoly(P, [[0, 10], [14, 3]], "#b45309", 2.6);
+    drawPoly(P, [[0, W], [14, W]], "#1e3a8a", 2);
+    drawPoly(P, [[0, W + e], [14, W + e]], "#b91c1c", 2, train ? [5, 4] : null);
+    drawPoly(P, [[0, W + k], [14, W + k]], "#047857", 2, train ? null : [5, 4]);
+    vLine(P, Ff, VMP(Ff), "#1f2937");
+    dot(P, Ff, VMP(Ff), "#1f2937", 5.5);
+    if (Math.abs(Fstar - Ff) > 0.01) { vLine(P, Fstar, VMP(Fstar), "#047857", [2, 3]); dot(P, Fstar, VMP(Fstar), "#047857", 4.5); }
+    endPlot(P);
+    label(P, 14, W, "w", "#1e3a8a", "left", 6);
+    label(P, 14, W + e, "w+e", "#b91c1c", "left", 6, e < k ? 0 : -8);
+    label(P, 14, W + k, "w+k", "#047857", "left", 6, e < k ? -8 : 8);
+    label(P, 14, 3, "VMP", "#b45309", "left", 6);
+    label(P, Ff, 0, "企業の選択", "#1f2937", "center", 0, -12);
+    // 判定
+    const f = x => x.toFixed(2);
+    const v = document.getElementById("exVerdict");
+    let msg = `企業は<b>${train ? "教育をして" : "教育をせずに"}</b> <span class="readout">${f(Ff)} 人</span> を雇う。` +
+      `地域に残る外部費用 <span class="readout">${f(train ? 0 : e * Ff)}</span>　社会全体の余剰 <span class="readout">${f(ss)}</span><br>` +
+      `社会的に最適なのは<b>${k < e ? "教育をして" : (k > e ? "教育をせずに" : "（教育してもしなくても同じ）")}</b> ${f(Fstar)} 人を雇うこと（余剰 ${f(ssStar)}）。`;
+    if (loss < 0.005) { v.className = "verdict good"; msg += `　<b class="good">最適が実現している</b>`; }
+    else {
+      v.className = "verdict bad";
+      msg += `　<b class="bad">損失 ${f(loss)}</b>：`;
+      if (policy === "none") msg += "企業は外部費用を負担しないので、教育をせず、雇いすぎる。";
+      else if (policy === "train") msg += "外部費用が小さいのに高い教育費用を強制しているため、受け入れが減りすぎる。";
+    }
+    if (policy === "levy" && loss < 0.005) msg += "：課徴金で外部費用を企業に負担させると、企業は「教育費用 $k$」と「課徴金 $e$」の安いほうを選び、雇用量も社会的に最適になる。";
+    v.innerHTML = msg;
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([v]).catch(() => {});
+  }
+  btns.forEach(b => b.addEventListener("click", () => {
+    policy = b.dataset.k;
+    btns.forEach(x => x.classList.toggle("on", x === b));
+    draw();
+  }));
+  [sE, sK].forEach(s => s.addEventListener("input", draw));
+  window.addEventListener("resize", draw);
+  draw();
+})();
+
+/* =========================================
+   localStorage への保存 / 読み込み
+   ========================================= */
+const STORAGE_KEY = "labor-lecture-f04-answers";
+function loadAnswers() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch { return {}; }
+}
+function saveAnswers(obj) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch { /* 保存できない環境では無視 */ }
+}
+const answers = loadAnswers();
+document.querySelectorAll("textarea.answer-input").forEach(t => {
+  const qid = t.dataset.qid;
+  if (answers[qid]) t.value = answers[qid];
+  const indicator = document.querySelector(`.answer-save[data-for="${qid}"]`);
+  let saveTimer;
+  const setIndicator = (state) => {
+    if (!indicator) return;
+    if (state === "saved") { indicator.textContent = "保存済み"; indicator.classList.add("saved"); }
+    else if (state === "saving") { indicator.textContent = "保存中…"; indicator.classList.remove("saved"); }
+    else { indicator.textContent = "未保存"; indicator.classList.remove("saved"); }
+  };
+  if (t.value) setIndicator("saved");
+  t.addEventListener("input", () => {
+    setIndicator("saving");
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      const a = loadAnswers();
+      a[qid] = t.value;
+      saveAnswers(a);
+      setIndicator("saved");
+    }, 350);
+  });
+});
+</script>
+</body>
+</html>
